@@ -117,6 +117,8 @@ def renderView(request):
     if useCache:
       cache.set(dataKey, data, cacheTimeout)
 
+    data.sort(cmp=lambda a,b: cmp(a.name, b.name))
+
     # If data is all we needed, we're done
     format = requestOptions.get('format')
     if format == 'csv':
