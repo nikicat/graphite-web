@@ -18,6 +18,7 @@ from django import VERSION as DJANGO_VERSION
 from os.path import abspath, dirname, join
 from warnings import warn
 
+sys.path.append(join(sys.prefix, 'conf'))
 
 GRAPHITE_WEB_APP_SETTINGS_LOADED = False
 WEBAPP_VERSION = '0.10.0-alpha'
@@ -137,7 +138,7 @@ FLUSHRRDCACHED = ''
 
 ## Load our local_settings
 try:
-  from graphite.local_settings import *
+  from local_settings import *
 except ImportError:
   print >> sys.stderr, "Could not import graphite.local_settings, using defaults!"
 
